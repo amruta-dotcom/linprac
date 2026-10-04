@@ -1,0 +1,48 @@
+PRACTICAL 10
+ Aim : Creating Shell Scripts for getting and setting system operations 
+Steps
+1. Getting Basic System Information
+Create a script:
+  vi system_info.sh
+
+   Make it executable:
+   chmod +x system_info.sh
+Run:
+	./system_info.sh
+
+2. Getting IP Address
+vi ipadress.sh
+
+	Execute and run
+	
+3. Setting the hostname
+The current hostname can be obtained with
+hostname
+
+To set it:
+	hostnamectl set-hostname server1.example.com
+
+Verify:
+    hostnamectl
+
+Using the shell script
+	vi hostname.sh
+
+Execute and run the shell script
+
+
+
+
+
+
+
+
+
+Name: Shristi Shetty
+Class: Tyds
+Rollno. 245145
+
+
+	LINUX OPERATING SYSTEM
+
+

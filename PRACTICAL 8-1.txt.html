@@ -1,0 +1,137 @@
+﻿Name: Ansari Mehrish Anam
+Class: TYDS
+Roll No.: 245124
+
+PRACTICAL 8
+
+Steps :-
+1. Login as root or use sudo 
+
+
+2. Update the system 
+Update the installed packages:
+⮚ dnf update –y
+
+
+3. Install Apache HTTP server
+Install the httpd package:
+⮚ dnf install httpd –y / rpm –q httpd
+
+Verify the installation:
+⮚ httpd –v
+
+4. Start the apache service 
+Start apache using:
+⮚ systemctl start httpd
+
+	Check its status:
+⮚ systemctl status httpd
+
+The service should show:
+Active: active (running)
+Press Q to exit the status screen
+
+5. Enable apache at system startup
+To make apache start automatically whenever the system boots:
+⮚ systemctl enable httpd
+
+	Verify :
+⮚ systemctl is-enabled httpd
+
+	Expected output : enabled
+
+6. Check the server IP address
+Find the IP address of the red hat system:
+⮚ ip addr
+
+You can also use:
+⮚ hostname –I
+
+	For example: 192.168.10.50
+	[Note the IP address because it will be used to test the web server]
+
+7. Configure the firewall
+Red hat uses firewalld to manage firewalls rules.
+Check whether it is running:
+⮚ systemctl status firewalld
+
+	Allow HTTP traffic:
+⮚ firewall-cmd –permanent –add-service=http
+
+	Reload the firewall:
+⮚ firewall-cmd –reload
+
+	Verify the rule:
+⮚ firewall-cmd –list-services
+
+
+You should see: http
+If HTTPS is also required, allow it using:
+⮚ firewall-cmd –permanent –add-service=https
+
+⮚ firewall-cmd –reload
+
+
+8. Create a test web page
+The default apache document root on RHEL 8 is:
+⮚ /var/www/html/
+
+	Create a simple HTML page:
+⮚ vi/var/www/html/index.html
+
+
+Enter: 
+<!DOCTYPE html>
+<html>
+<head>
+<title>Apache Web Server</title>
+</head>
+<body>
+<h1>Welcome to apache web server</h1>
+<p>Apache web server is successfully configured on red hat enterprise linux 8.</
+p>
+</body>
+</html>
+
+[Save and exit: Esc :wq]
+
+9. Set appropriate permissions
+Set the owenership of the web content:
+⮚ chown –R apache:apache /var/www/html/
+
+Set suitable permissions:
+⮚ chmod –R 755 /var/www/html/
+
+
+10. Check apache configuration
+Before restarting apache, check the configuration for syntax errors:
+⮚ apachectl configtest
+
+Expected output: Syntax OK
+This is an important step because it prevents restarting apache with an invalid configuration
+
+11. Restart Apache
+Restart the service:
+⮚ systemctl restart httpd
+
+Check the status:
+⮚ systemctl status httpd
+The service should be: Active : active (running)
+
+12. Test the web server locally
+Use curl to test apache from the server itself:
+⮚ curl http://localhost
+
+You should see the Html content of the web page
+You can also use:
+⮚ curl http://127.0.0.1
+
+
+13. Test apache from a web browser 
+Open a browser on the server or another computer connected to the same network
+Enter : http://<server-IP-address>
+For example:
+⮚ http://192.168.10.50
+The browser should display:
+Welcome to Apache Web Server
+LINUX OPERATING SYSTEM

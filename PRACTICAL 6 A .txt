@@ -1,0 +1,35 @@
+PRACTICAL 6A
+
+1. Display running processes
+ps
+      
+2. Display all processes
+ ps -ef: This provides detailed information about running processes.
+
+3. Find a particular process
+pgrep bash: This displays the PID of the bash process.
+
+
+4. Monitor processes
+top : The top command continuously displays CPU usage, memory usage, PIDs, and running processes .Press q to exit 
+
+5. Create a background process
+sleep 100 &: The & symbol runs the command in the background.
+
+6. Check the processes
+ps
+
+7. Terminate a process
+First find its PID:
+     pgrep sleep
+
+Then terminate it:
+	kill PID
+
+Name: Shristi Shetty
+Class: Tyds
+Rollno. 245145
+
+
+	LINUX OPERATING SYSTEM
+

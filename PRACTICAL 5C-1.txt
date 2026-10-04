@@ -1,0 +1,67 @@
+PRACTICAL 5C
+
+1. Create a directory for mounting the RHEL 8 ISO/DVD:
+mkdir /mnt/rhel8
+	
+
+2. Mount the RHEL8 DVD/ISO:
+mount /dev/cdrom /mnt/rhel8
+
+
+3. Verify the mounted files:
+ls /mnt/rhel8
+     The BaseOS and Appstream directories should be visible
+
+
+4. Create a local repository file:
+vi /etc/yum.repos.d/local.repo
+
+Enter the following configuration
+
+Save and exit the file
+Esc 
+:wq
+Enter
+
+5. Display the available repositories:
+      dnf repolist
+
+
+6. Clear the existing repository cache:
+      dnf clean all
+
+
+7. Create the repository cache:
+      dnf makecache
+
+
+8. Search for a package:
+      dnf search httpd
+
+ 
+
+9. Install the package:
+       dnf install httpd
+Enter y when prompted
+
+
+
+10. Verify the installation:
+       rpm -q httpd
+
+
+11. Update the installed package:
+       dnf update httpd
+
+
+12. To update all available packages:
+       dnf update
+
+Name: Ansari Mehrish Anam
+Class: TYDS
+Roll No.: 245124
+
+
+
+LINUX OPERATING SYSTEM
+

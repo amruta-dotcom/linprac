@@ -1,0 +1,84 @@
+PRACTICAL 7A
+
+Steps :-
+1. View network interfaces
+Use the ip command to display network interfaces and their IP addresses
+     ip addr 
+
+
+Here :
+? ens160 - Network interface name
+? 192.168.52.135 - IP address
+? /24 - Network prefix
+
+2. View interface status
+     ip link
+
+
+It displays whether the interface is UP or DOWN
+
+3. View network connections using NetworkManager
+RHEL 8 uses NetworkManager for network configuration
+
+     nmcli device status 
+
+This displays the status of network devices
+
+     nmcli connection show
+
+This displays available network connections
+
+4. Assign an IP address
+A temporaray IP address can be assigned using:
+     sudo ip addr add 192.168.52.100/24 dev ens160
+
+Verify it using:
+     ip addr show ens160
+
+5. Configure a static IP using nmcli
+Note : first, see the actual connection name
+     nmcli connection show
+
+
+sudo nmcli con mod "ens160" ipv4.addresses 192.168.52.100/24
+
+
+sudo nmcli con mod "ens160" ipv4.dns 8.8.8.8
+
+
+Activate the connection:
+     sudo nmcli con up "ens160"
+
+
+6. Configure DHCP
+To obtain an IP address automatically:
+sudo nmcli con mod "ens160" ipv4.method auto 
+
+sudo nmcli con up "ens160"
+
+
+7. Bring an interface up or down:-
+
+Bring the interface up:
+     sudo ip link set ens160 up
+
+
+Validate :
+? ip link show ens160
+
+
+Bring it down:
+     sudo ip link set ens160 down
+
+
+Validate:
+? ip link show ens160
+
+
+Name: Ansari Mehrish Anam
+Class: TYDS
+Roll No.: 245124
+
+
+LINUX OPERATING SYSTEM
+

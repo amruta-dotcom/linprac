@@ -1,0 +1,55 @@
+PRACTICAL 5B
+
+1. Check RPM version
+rpm -version
+
+
+
+2.  Install an RPM package
+If you have an RPM file, for example package.rpm:
+sudo rpm -ivh package.rpm
+
+? -i            Install 
+? -v           Verbose output
+? -h           Show progress
+
+3. Query installed packages
+rpm -qa
+
+
+To search for a particular package:
+rpm -qa | grep httpd
+
+
+4. Get information about an installed package
+rpm -qi httpd
+	
+
+5. List files installed by a package
+rpm -ql httpd
+	
+
+6. Find which package owns a file
+rpm -qf /usr/sbin/httpd
+
+
+7. Verify an installed package
+rpm -V httpd
+
+
+8. Remove an RPM package
+sudo rpm -e httpd
+? -e           Erase/remove
+
+
+9. Check whether a package is installed 
+rpm -q httpd
+
+Name: Ansari Mehrish Anam
+Class: TYDS
+Roll No.: 245124
+
+
+
+LINUX OPERATING SYSTEM
+

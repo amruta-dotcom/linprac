@@ -1,0 +1,42 @@
+PRACTICAL 6D
+Steps:
+1. Check whether tuned is installed
+rpm -q tuned
+
+2. Start and enabled tuned
+If the service is not running
+sudo systemctl start tuned
+
+
+To start it automatically whenever the system boots:
+sudo systemctl enabled tuned
+
+3. Check the active tuning profile
+tuned-adm active
+
+
+4. List available profiles
+tuned-adm list
+
+
+5. Change the active profile
+For example, to use the throughput-performance profile:
+sudo  tuned-adm profile throughput-performance
+
+
+	Check the active profile:
+tuned-adm active
+
+
+6. Verify the recommended profile
+You can ask tuned which profile it recommends:
+		tuned-adm recommend 
+               
+
+
+Name: Shristi Shetty
+Class: Tyds
+Rollno. 245145
+
+	LINUX OPERATING SYSTEM
+

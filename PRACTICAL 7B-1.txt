@@ -1,0 +1,33 @@
+PRACTICAL 7B
+
+Steps :-
+1. Open the terminal and run:
+       nmtui
+
+2. Select edit a connection.
+
+
+3. Select the required network interface, such as ens 160.
+
+
+4. Configure:
+? IPv4 Configuration : Manual
+? IP Address: 192.168.227.132/24
+? Gateway: 192.168.227.1
+? DND Server: 8.8.8.8
+       
+       
+       
+5. Select OK and activate the connection using Activate a connection
+
+
+
+Using nmcli
+? nmcli is the command-line utility for managing NetworkManager
+Name: Ansari Mehrish Anam
+Class: TYDS
+Roll No.: 245124
+
+
+LINUX OPERATING SYSTEM
+

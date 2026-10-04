@@ -1,0 +1,40 @@
+PRACTICAL 6C
+Steps:
+1. top
+
+2. Finding a process using CPU
+    P: Processes are sorted according to CPU usage. The process consuming the highest CPU appears near the top.
+
+3. Finding a process using memory
+
+      M: This sorts the processes according to memory usage.
+
+4. Meaning a process using
+k: The k option allows an administrator to send a signal to a process.
+top asks for the PID
+
+Then enter the signal. A common signal is:
+15: Signal 15 (SIGTERM) requests the process to terminate normally.
+
+5. Changing process priority using r
+r: Then enter the PID and the new nice value.
+A higher renice value generally means lower CPU scheduling priority.
+
+
+
+
+
+Note: To search for particular PID use L
+6. Exit from top
+q
+
+
+
+
+Name: Shristi Shetty
+Class: Tyds
+Rollno. 245145
+
+
+LINUX OPERATING SYSTEM
+

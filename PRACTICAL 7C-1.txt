@@ -1,0 +1,62 @@
+PRACTICAL 7C
+
+Steps :-
+1. Check the interface and connection
+     nmcli device status
+
+	Then :
+	     nmcli connection show
+	
+	Assume the connection name is ens160.
+
+2. Configure IPv4 Static address
+Example requirements:
+? IPv4: 192.168.10.50/24
+? Gateway: 192.168.10.1
+? DNS: 8.8.8.8
+Run:
+      sudo nmcli connection modify ens160\
+      ipv4.method manual\
+      ipv4.addresses 192.168.10.50/24\
+      ipv4.gateway 192.168.10.1\
+      ipv4.dns 8.8.8.8
+
+
+Activate:
+     sudo nmcli connection up ens160
+
+Verify:
+     ip -4 addr show ens160
+
+     ip -4 route
+
+
+3. Configure IPv6 static address
+Example requirements:
+? IPv6: 2001:db8:10::50/64
+? Gateway: 2001:db8:10::1
+? DNS: 2001:4860:4860::8888
+Configure :
+      sudo nmcli connection modify ens160 \
+      ipv6.method manual \
+      ipv6.addresses 2001:db8:10::50/64 \
+      ipv6.gateway 2001:db8:10::1 \
+      ipv6.dns 2001:4860:4860::8888
+
+
+Activate:
+? sudo nmcli connection up ens160
+
+Verify: 
+? ip -6 addr show ens160
+
+Check IPv6 routes:
+? ip -6 route
+
+Name: Ansari Mehrish Anam
+Class: TYDS
+Roll No.: 245124
+
+
+LINUX OPERATING SYSTEM
+

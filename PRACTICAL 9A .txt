@@ -1,0 +1,36 @@
+﻿Name: Shristi Shetty
+Class: Tyds
+Rollno. 245145
+
+PRACTICAL 9
+Steps to configure linux Firewall with Ipatches
+1. Check status of Firewall
+    systemctl status firewall
+
+
+2. Mount the ISO: Create the mount point:
+   sudo mkdir –p /mnt/rhel8
+
+3. Then mount the DVD:
+    sudo mount /dev/sr0 /mnt/rhel8
+
+     	Check
+	ls /mnt/rhel8
+
+You should see something similar to:
+Appstream
+BaseOS
+EFI
+Images
+Isolinux
+4. Now Verify:
+ls /mnt/rhel8/BaseOS/repodata/repond.xml
+
+If that file exists, your local  repository is available.
+
+                    
+
+
+
+LINUX OPERATING SYSTEM
+

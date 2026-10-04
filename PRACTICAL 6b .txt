@@ -1,0 +1,39 @@
+PRACTICAL 6B
+Steps:
+1. Run a command in background
+ sleep 100 &
+
+
+Here:
+[1] = job number
+3582 = process ID (PID)
+
+2. Check jobs
+jobs
+
+3. Suspend a foreground job
+Run:
+         sleep 100
+Press:
+Ctrl + Z
+The job becomes suspended.
+
+4. Resume in background
+ bg %1
+
+5. Bring it to foreground
+fg %1
+
+Important: If fg%1 says "no such job", first run:
+jobs
+
+6. Terminate a job
+kill %1
+
+Name: Shristi Shetty
+Class: Tyds
+Rollno. 245145
+
+
+	LINUX OPERATING SYSTEM
+

@@ -1,0 +1,79 @@
+PRACTICAL 5A
+
+1. Check YUM version
+yum - version
+
+
+
+2. Check available repositories
+yum repolist
+
+
+
+3. Search for a package
+yum search httpd
+
+
+
+4. Display package information
+yum info httpd
+
+
+
+
+5. Install a package
+sudo yum install httpd
+enter y when prompted
+
+
+6. Verify the installed package
+rpm -q httpd
+
+
+
+You can also use 
+yum list installed httpd
+
+
+
+7. Update a package 
+sudo yum update httpd
+
+
+
+8. Update all packages 
+sudo yum update
+
+
+
+9. Remove a package
+sudo yum remove httpd
+
+
+
+10.  List installed packages
+yum list installed
+
+
+
+
+11.  List available packages 
+yum list available
+
+
+
+12.  Clean yum cache
+sudo yum clean all
+
+
+
+
+Name: Ansari Mehrish Anam
+Class: TYDS
+Roll No.: 245124
+
+
+
+
+LINUX OPERATING SYSTEM
+
