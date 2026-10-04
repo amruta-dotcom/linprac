@@ -1,0 +1,588 @@
+PRACTICAL 5A
+
+1. Check YUM version
+yum - version
+
+2. Check available repositories
+yum repolist
+
+3. Search for a package
+yum search httpd
+
+4. Display package information
+yum info httpd
+
+5. Install a package
+sudo yum install httpd
+enter y when prompted
+
+6. Verify the installed package
+rpm -q httpd
+
+You can also use 
+yum list installed httpd
+
+7. Update a package 
+sudo yum update httpd
+
+8. Update all packages 
+sudo yum update
+
+9. Remove a package
+sudo yum remove httpd
+
+10.  List installed packages
+yum list installed
+
+11.  List available packages 
+yum list available
+
+12.  Clean yum cache
+sudo yum clean all
+
+Name: Ansari Mehrish Anam
+Class: TYDS
+Roll No.: 245124
+LINUX OPERATING SYSTEM
+
+PRACTICAL 5B
+
+1. Check RPM version
+rpm -version
+
+
+
+2.  Install an RPM package
+If you have an RPM file, for example package.rpm:
+sudo rpm -ivh package.rpm
+
+? -i            Install 
+? -v           Verbose output
+? -h           Show progress
+
+3. Query installed packages
+rpm -qa
+
+
+To search for a particular package:
+rpm -qa | grep httpd
+
+
+4. Get information about an installed package
+rpm -qi httpd
+	
+
+5. List files installed by a package
+rpm -ql httpd
+	
+
+6. Find which package owns a file
+rpm -qf /usr/sbin/httpd
+
+
+7. Verify an installed package
+rpm -V httpd
+
+
+8. Remove an RPM package
+sudo rpm -e httpd
+? -e           Erase/remove
+
+
+9. Check whether a package is installed 
+rpm -q httpd
+
+Name: Ansari Mehrish Anam
+Class: TYDS
+Roll No.: 245125
+
+LINUX OPERATING SYSTEM
+
+PRACTICAL 5C
+
+1. Create a directory for mounting the RHEL 8 ISO/DVD:
+mkdir /mnt/rhel8
+	
+
+2. Mount the RHEL8 DVD/ISO:
+mount /dev/cdrom /mnt/rhel8
+
+
+3. Verify the mounted files:
+ls /mnt/rhel8
+     The BaseOS and Appstream directories should be visible
+
+
+4. Create a local repository file:
+vi /etc/yum.repos.d/local.repo
+
+Enter the following configuration
+
+Save and exit the file
+Esc 
+:wq
+Enter
+
+5. Display the available repositories:
+      dnf repolist
+
+
+6. Clear the existing repository cache:
+      dnf clean all
+
+
+7. Create the repository cache:
+      dnf makecache
+
+
+8. Search for a package:
+      dnf search httpd
+
+ 
+
+9. Install the package:
+       dnf install httpd
+Enter y when prompted
+
+10. Verify the installation:
+       rpm -q httpd
+
+
+11. Update the installed package:
+       dnf update httpd
+
+
+12. To update all available packages:
+       dnf update
+
+Name: Ansari Mehrish Anam
+Class: TYDS
+Roll No.: 245124
+
+
+
+LINUX OPERATING SYSTEM
+
+PRACTICAL 6A
+
+1. Display running processes
+ps
+      
+2. Display all processes
+ ps -ef: This provides detailed information about running processes.
+
+3. Find a particular process
+pgrep bash: This displays the PID of the bash process.
+
+
+4. Monitor processes
+top : The top command continuously displays CPU usage, memory usage, PIDs, and running processes .Press q to exit 
+
+5. Create a background process
+sleep 100 &: The & symbol runs the command in the background.
+
+6. Check the processes
+ps
+
+7. Terminate a process
+First find its PID:
+     pgrep sleep
+
+Then terminate it:
+	kill PID
+
+Name: Shristi Shetty
+Class: Tyds
+Rollno. 245145
+
+
+	LINUX OPERATING SYSTEM
+
+
+PRACTICAL 6B
+Steps:
+1. Run a command in background
+ sleep 100 &
+
+
+Here:
+[1] = job number
+3582 = process ID (PID)
+
+2. Check jobs
+jobs
+
+3. Suspend a foreground job
+Run:
+         sleep 100
+Press:
+Ctrl + Z
+The job becomes suspended.
+
+4. Resume in background
+ bg %1
+
+5. Bring it to foreground
+fg %1
+
+Important: If fg%1 says "no such job", first run:
+jobs
+
+6. Terminate a job
+kill %1
+
+Name: Shristi Shetty
+Class: Tyds
+Rollno. 245145
+
+
+	LINUX OPERATING SYSTEM
+
+
+PRACTICAL 6C
+Steps:
+1. top
+
+2. Finding a process using CPU
+    P: Processes are sorted according to CPU usage. The process consuming the highest CPU appears near the top.
+
+3. Finding a process using memory
+
+      M: This sorts the processes according to memory usage.
+
+4. Meaning a process using
+k: The k option allows an administrator to send a signal to a process.
+top asks for the PID
+
+Then enter the signal. A common signal is:
+15: Signal 15 (SIGTERM) requests the process to terminate normally.
+
+5. Changing process priority using r
+r: Then enter the PID and the new nice value.
+A higher renice value generally means lower CPU scheduling priority.
+
+
+Note: To search for particular PID use L
+6. Exit from top
+q
+
+
+Name: Shristi Shetty
+Class: Tyds
+Rollno. 245145
+
+
+LINUX OPERATING SYSTEM
+
+
+PRACTICAL 6D
+Steps:
+1. Check whether tuned is installed
+rpm -q tuned
+
+2. Start and enabled tuned
+If the service is not running
+sudo systemctl start tuned
+
+
+To start it automatically whenever the system boots:
+sudo systemctl enabled tuned
+
+3. Check the active tuning profile
+tuned-adm active
+
+
+4. List available profiles
+tuned-adm list
+
+
+5. Change the active profile
+For example, to use the throughput-performance profile:
+sudo  tuned-adm profile throughput-performance
+
+
+	Check the active profile:
+tuned-adm active
+
+
+6. Verify the recommended profile
+You can ask tuned which profile it recommends:
+		tuned-adm recommend 
+               
+
+
+Name: Shristi Shetty
+Class: Tyds
+Rollno. 245145
+
+	LINUX OPERATING SYSTEM
+
+
+PRACTICAL 7A
+
+Steps :-
+1. View network interfaces
+Use the ip command to display network interfaces and their IP addresses
+     ip addr 
+
+
+Here :
+? ens160 - Network interface name
+? 192.168.52.135 - IP address
+? /24 - Network prefix
+
+2. View interface status
+     ip link
+
+
+It displays whether the interface is UP or DOWN
+
+3. View network connections using NetworkManager
+RHEL 8 uses NetworkManager for network configuration
+
+     nmcli device status 
+
+This displays the status of network devices
+
+     nmcli connection show
+
+This displays available network connections
+
+4. Assign an IP address
+A temporaray IP address can be assigned using:
+     sudo ip addr add 192.168.52.100/24 dev ens160
+
+Verify it using:
+     ip addr show ens160
+
+5. Configure a static IP using nmcli
+Note : first, see the actual connection name
+     nmcli connection show
+
+
+sudo nmcli con mod "ens160" ipv4.addresses 192.168.52.100/24
+
+
+sudo nmcli con mod "ens160" ipv4.dns 8.8.8.8
+
+
+Activate the connection:
+     sudo nmcli con up "ens160"
+
+
+6. Configure DHCP
+To obtain an IP address automatically:
+sudo nmcli con mod "ens160" ipv4.method auto 
+
+sudo nmcli con up "ens160"
+
+
+7. Bring an interface up or down:-
+
+Bring the interface up:
+     sudo ip link set ens160 up
+
+
+Validate :
+? ip link show ens160
+
+
+Bring it down:
+     sudo ip link set ens160 down
+
+
+Validate:
+? ip link show ens160
+
+
+Name: Ansari Mehrish Anam
+Class: TYDS
+Roll No.: 245124
+
+
+LINUX OPERATING SYSTEM
+
+
+PRACTICAL 7B
+
+Steps :-
+1. Open the terminal and run:
+       nmtui
+
+2. Select edit a connection.
+
+
+3. Select the required network interface, such as ens 160.
+
+
+4. Configure:
+? IPv4 Configuration : Manual
+? IP Address: 192.168.227.132/24
+? Gateway: 192.168.227.1
+? DND Server: 8.8.8.8
+       
+       
+       
+5. Select OK and activate the connection using Activate a connection
+
+
+
+Using nmcli
+? nmcli is the command-line utility for managing NetworkManager
+Name: Ansari Mehrish Anam
+Class: TYDS
+Roll No.: 245124
+
+
+LINUX OPERATING SYSTEM
+
+
+PRACTICAL 7C
+
+Steps :-
+1. Check the interface and connection
+     nmcli device status
+
+	Then :
+	     nmcli connection show
+	
+	Assume the connection name is ens160.
+
+2. Configure IPv4 Static address
+Example requirements:
+? IPv4: 192.168.10.50/24
+? Gateway: 192.168.10.1
+? DNS: 8.8.8.8
+Run:
+      sudo nmcli connection modify ens160\
+      ipv4.method manual\
+      ipv4.addresses 192.168.10.50/24\
+      ipv4.gateway 192.168.10.1\
+      ipv4.dns 8.8.8.8
+
+
+Activate:
+     sudo nmcli connection up ens160
+
+Verify:
+     ip -4 addr show ens160
+
+     ip -4 route
+
+
+3. Configure IPv6 static address
+Example requirements:
+? IPv6: 2001:db8:10::50/64
+? Gateway: 2001:db8:10::1
+? DNS: 2001:4860:4860::8888
+Configure :
+      sudo nmcli connection modify ens160 \
+      ipv6.method manual \
+      ipv6.addresses 2001:db8:10::50/64 \
+      ipv6.gateway 2001:db8:10::1 \
+      ipv6.dns 2001:4860:4860::8888
+
+
+Activate:
+? sudo nmcli connection up ens160
+
+Verify: 
+? ip -6 addr show ens160
+
+Check IPv6 routes:
+? ip -6 route
+
+Name: Ansari Mehrish Anam
+Class: TYDS
+Roll No.: 245124
+
+
+LINUX OPERATING SYSTEM
+
+PRACTICAL 8
+
+Name: Ansari Mehrish Anam Class: TYDS Roll No.: 245124 PRACTICAL 8 Steps :- 1. Login as root or use sudo 2. Update the system Update the installed packages: ⮚ dnf update –y 3. Install Apache HTTP server Install the httpd package: ⮚ dnf install httpd –y / rpm –q httpd Verify the installation: ⮚ httpd –v 4. Start the apache service Start apache using: ⮚ systemctl start httpd Check its status: ⮚ systemctl status httpd The service should show: Active: active (running) Press Q to exit the status screen 5. Enable apache at system startup To make apache start automatically whenever the system boots: ⮚ systemctl enable httpd Verify : ⮚ systemctl is-enabled httpd Expected output : enabled 6. Check the server IP address Find the IP address of the red hat system: ⮚ ip addr You can also use: ⮚ hostname –I For example: 192.168.10.50 [Note the IP address because it will be used to test the web server] 7. Configure the firewall Red hat uses firewalld to manage firewalls rules. Check whether it is running: ⮚ systemctl status firewalld Allow HTTP traffic: ⮚ firewall-cmd –permanent –add-service=http Reload the firewall: ⮚ firewall-cmd –reload Verify the rule: ⮚ firewall-cmd –list-services You should see: http If HTTPS is also required, allow it using: ⮚ firewall-cmd –permanent –add-service=https ⮚ firewall-cmd –reload 8. Create a test web page The default apache document root on RHEL 8 is: ⮚ /var/www/html/ Create a simple HTML page: ⮚ vi/var/www/html/index.html Enter:
+Welcome to apache web server
+Apache web server is successfully configured on red hat enterprise linux 8. [Save and exit: Esc :wq] 9. Set appropriate permissions Set the owenership of the web content: ⮚ chown –R apache:apache /var/www/html/ Set suitable permissions: ⮚ chmod –R 755 /var/www/html/ 10. Check apache configuration Before restarting apache, check the configuration for syntax errors: ⮚ apachectl configtest Expected output: Syntax OK This is an important step because it prevents restarting apache with an invalid configuration 11. Restart Apache Restart the service: ⮚ systemctl restart httpd Check the status: ⮚ systemctl status httpd The service should be: Active : active (running) 12. Test the web server locally Use curl to test apache from the server itself: ⮚ curl http://localhost You should see the Html content of the web page You can also use: ⮚ curl http://127.0.0.1 13. Test apache from a web browser Open a browser on the server or another computer connected to the same network Enter : http:// For example: ⮚ http://192.168.10.50 The browser should display: Welcome to Apache Web Server LINUX OPERATING SYSTEM
+
+
+Name: Shristi Shetty
+Class: Tyds
+Rollno. 245145
+
+PRACTICAL 9
+
+Steps to configure linux Firewall with Ipatches
+1. Check status of Firewall
+    systemctl status firewall
+
+
+2. Mount the ISO: Create the mount point:
+   sudo mkdir –p /mnt/rhel8
+
+3. Then mount the DVD:
+    sudo mount /dev/sr0 /mnt/rhel8
+
+     	Check
+	ls /mnt/rhel8
+
+You should see something similar to:
+Appstream
+BaseOS
+EFI
+Images
+Isolinux
+4. Now Verify:
+ls /mnt/rhel8/BaseOS/repodata/repond.xml
+
+If that file exists, your local  repository is available.
+
+                   
+LINUX OPERATING SYSTEM
+
+
+
+PRACTICAL 10
+ Aim : Creating Shell Scripts for getting and setting system operations 
+Steps
+1. Getting Basic System Information
+Create a script:
+  vi system_info.sh
+
+   Make it executable:
+   chmod +x system_info.sh
+Run:
+	./system_info.sh
+
+2. Getting IP Address
+vi ipadress.sh
+
+	Execute and run
+	
+3. Setting the hostname
+The current hostname can be obtained with
+hostname
+
+To set it:
+	hostnamectl set-hostname server1.example.com
+
+Verify:
+    hostnamectl
+
+Using the shell script
+	vi hostname.sh
+
+Execute and run the shell script
+
+
+
+Name: Shristi Shetty
+Class: Tyds
+Rollno. 245145
+
+
+	LINUX OPERATING SYSTEM
+
+
+
+
